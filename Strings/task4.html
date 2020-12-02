@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task4</title>
+</head>
+<body>
+	<h1>extractCurrencyValue(str). Повертає з строки значення, що йде після грошового еквіваленту.</h1>
+	<p>Введіть бажану суму <input type="text" id="money"></p>
+	<script type="text/javascript">
+		function extractCurrencyValue() {
+			let money = document.getElementById('money').value;
+			let value = money.substring(1);
+			alert ("Початкова сума = " + money +
+				"\nЇї значення = " + value);
+		}
+	</script>
+	<button onclick="extractCurrencyValue()">extractCurrencyVaue</button>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task 3</title>
+</head>
+<body>
+	<h1>truncate(str, maxlength). Перевіряє довжину строки str. Якщо вона більша за maxlength - заміняє
+	кінець строки str на "...", так щоб її довжина була рівною maxlength</h1>
+	<p>Введіть строку <input type="text" id="str"></p>
+	<p>Введіть бажану кільікість символів, які Ви хотіли б бачити <input type="text" id="maxlength"></p>
+	<script type="text/javascript">
+		function truncate(){
+			let str = document.getElementById('str').value;
+			let maxlength = Number (document.getElementById('maxlength').value);
+			let strNew = ""; // нова строка з обрізкою до певного числа символів
+			let strEnd = ""; // непотрібні символи, які в результаті перетворяться на "..."
+			if (str.length > maxlength) {
+				strNew = str.substring(0,maxlength); // для нової строки. Обрізає до maxlength
+				strEnd = str.substring(maxlength); // непотрібні символи
+				strEnd = "..."; // перетворення на "..."
+				strNew += strEnd; // формування нової строки із заміною зайвих символів на "..."
+			}
+			alert("Початкова строка - " + str + ". Її довжина = " + str.length +
+				"\nЗ обрізанням до " + maxlength + " символів = "  + strNew);
+		}
+	</script>
+	<button onclick="truncate()">truncate</button>
+</body>
+</html>

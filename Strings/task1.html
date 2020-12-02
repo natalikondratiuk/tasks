@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task 1</title>
+</head>
+<body>
+	<h1>ucFirst, яка повертає строку з великими першими літерами</h1>
+	<p>Введіть строку <input type="text" id="string"></p>
+	<script type="text/javascript">
+		function ucFirst() {
+			let string = document.getElementById('string').value;
+			let firstSmb = string.charAt(0);
+			let firstLetter = firstSmb.toUpperCase();
+			let newStr = firstLetter + string;
+			alert("Вхідна строка: " + string + "\nСтрока з першою великою літерою: " + newStr);
+		}
+	</script>
+	<button onclick="ucFirst()">ucFirst</button>
+</body>
+</html>

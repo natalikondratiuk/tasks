@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task2</title>
+</head>
+<body>
+	<h1>checkSpam. Повертає true, якщо строка містить "viagra" або "ХХХ", інакше - false.</h1>
+	<p>Введіть строку <input type="text" id="spam"></p>
+	<script type="text/javascript">
+		function checkSpam(){
+			let spam = document.getElementById('spam').value;
+			if (spam.includes("viagra") || spam.includes("XXX")){
+				alert ("Строка " + spam + "\n" + "містить viagra або ХХХ" );
+			}
+			else alert ("Строка " + spam + "\n" + "не містить viagra або ХХХ" );
+		}
+	</script>
+	<button onclick="checkSpam()">Перевірити на спам</button>
+</body>
+</html>
