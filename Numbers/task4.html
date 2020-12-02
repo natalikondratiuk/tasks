@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task 4</title>
+</head>
+<body>
+	<h1>Генерація випадкового числа в межах від 0 до max</h1>
+	<p>Введіть кінцеву межу <input type="text" id="valFinish"></p>
+	<script type="text/javascript">
+		function randomValue() {
+			let max = Number (document.getElementById('valFinish').value);
+			let count = 0;
+			let valRandom = Math.random() * max;
+			let testString = ""; // для перевірки роботи генератора
+			for (let i = 10000; i; i--){
+				let rnd = Math.random() * max ;
+				if ( rnd > max - max*.001 ){
+					testString += rnd + "\n";
+				 	count++;
+				} // if
+			} // for
+			alert("Випадкове число в межах від 0 до " + max + "\n" + valRandom.toFixed(2)
+				+ "\nПеревірка генератора\n" + "кількість випадків наближені до MAX = " + count + "\n" + testString );
+		}
+	</script>
+	<button onclick="randomValue()">Випадкове число</button>
+</body>
+</html>

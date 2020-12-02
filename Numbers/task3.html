@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task3</title>
+</head>
+<body>
+	<h1>GetDecimal</h1>
+	<p>Введіть число <input type="text" id="val"></p>
+	<script type="text/javascript">
+		// Перший варіант реалізації алгоритму
+		function getDecimal(){
+			var val = Number (document.getElementById('val').value);
+			var dec = val % 1;
+			alert ("Перший варіант реалізації алгоритму:\nДесяткова частина числа " + val + " = " + dec.toFixed(3));
+		}
+
+		// Другий варіант реалізації алгоритму
+		function getDecimal1(){
+			var val = Number (document.getElementById('val').value);
+			var intPart = parseInt(val); // виділяємо цілу частину числа
+			var dec = val - intPart; // внаслідок відмання від дробового числа цілої частини отримуємо десяткову частину
+			alert ("Другий варіант реалізації алгоритму:\nДесяткова частина числа " + val + " = " + dec.toFixed(3));
+		}
+	</script>
+	<button onclick="getDecimal()">getDecimal</button>
+	<button onclick="getDecimal1()">getDecimal 1</button>
+</body>
+</html>

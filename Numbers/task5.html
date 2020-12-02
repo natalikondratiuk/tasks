@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task5</title>
+</head>
+<body>
+	<h1>Генерація випадкового числа від min до max</h1>
+	<p>Введіть початкову межу <input type="text" id="valStart"></p>
+	<p>Введіть кінцеву межу <input type="text" id="valFinish"></p>
+	<script type="text/javascript">
+		function valueRandom() {
+			let min = Number (document.getElementById('valStart').value);
+			let max = Number (document.getElementById('valFinish').value);
+			let valueRandom = Math.floor (min + Math.random() * Math.floor(max - min));
+			alert("Випадкове число в межах від " + min + " до " + max + "\n" + valueRandom);
+		}
+	</script>
+	<button onclick="valueRandom()">Випадкове число</button>
+</body>
+</html>

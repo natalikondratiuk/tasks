@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task1</title>
+</head>
+<body>
+	<h1>Сума двох чисел</h1>
+	<p>Введіть 1 число <input type="text" id="valF"></p>
+	<p>Введіть 2 число <input type="text" id="valS"></p>
+	<script type="text/javascript">
+		function sumVal() {
+			let valF = Number(document.getElementById('valF').value);
+			let valS = Number(document.getElementById('valS').value);
+			let rez = valF + valS;
+			alert(valF + " + " + valS + " = " + rez);
+		}
+	</script>
+	<button onclick="sumVal()">Просумувати</button>
+</html>
