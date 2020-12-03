@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task5</title>
+</head>
+<body>
+	<h1>cloneObj(obj). Клонує об'єкт</h1>
+	<script type="text/javascript">
+		function clonedObj() {
+			let cloned = {
+				name: "Вася",
+				surname: "Петров"
+			};
+			let clone = cloneObj(cloned);
+			alert ("Початковий клас:" +
+				"\nname: " + cloned.name +
+				"\nsurname: " + cloned.surname +
+				"\n\nСклонований об'єкт" +
+				"\nname: " + clone.name +
+				"\nsurname: " + clone.surname)
+		} // clonedObj
+
+		function cloneObj(obj){
+			let clone = {}; // пустий об'єкт (згодом - клон)
+			for (let i in obj){
+				clone[i] = obj[i];
+			} // for i
+			return clone;
+		} // cloneObj
+	</script>
+	<button onclick="clonedObj()">Клонувати об'єкт</button>
+</body>
+</html>

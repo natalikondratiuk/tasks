@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task4</title>
+</head>
+<body>
+	<h1>multiplyNumeric(obj). Помножає всі числові властивості на 2</h1>
+	<script type="text/javascript">
+		function multiplyClass() {
+			let print = "";
+			let menu = {
+				width: 200,
+				height: 300,
+				title: "My menu"
+			};
+			alert ("Початковий клас" +
+				"\nwidth: " + menu.width +
+				"\nheight: " + menu.height +
+				"\ntitle: " + menu.title
+				);
+			let menuNew = multiplyNumeric(menu);
+				alert ("Значення класу, помножені на 2" +
+				"\nwidth: " + menuNew.width +
+				"\nheight: " + menuNew.height +
+				"\ntitle: " + menuNew.title);
+		} // multiplyClass
+
+		function multiplyNumeric(obj) {
+			for (let i in obj){
+				if (typeof(obj[i]) == 'number'){
+					// якщо дана властивість є числом
+					obj[i] *= 2;
+				} // for
+			} // for i
+			return obj;
+		} // multiplyNumeric
+	</script>
+	<button onclick="multiplyClass()">multiplyNumeric</button>
+</body>
+</html>

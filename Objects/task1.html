@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task1</title>
+</head>
+<body>
+	<h1>Задача на синтаксис об'єктів</h1>
+	<ol>
+		<li>Створити новий об'єкт</li>
+		<li>Додати параметр name із значенням "Вася"</li>
+		<li>Додати параметр surname із значенням "Петров"</li>
+		<li>Змінити параметр name на значення "Сергій"</li>
+		<li>Видалити параметр name з об'єкту</li>
+	</ol>
+	<script type="text/javascript">
+		// Перший спосіб створення об'єкту - за допомогою ініціалізатора
+		function initObj() {
+			let person = {
+				name: "Вася", // додавання нового поля name до об'єкту із значенням "Вася"
+				surname: "Петров" // додавання нового поля surname до об'єкту із значенням "Петров"
+			}; // створення нового об'єкту (об'єктний ініціалізатор)
+			person['name'] = "Сергій"; // змінення параметру name на значення "Сергій"
+			delete person.name; // видалення поля name
+			alert("Створення об'єкту за допомогою ініціалізатора" + 
+				"\nІм'я об'єкту - " + person.name +
+				"\nПрізвище об'єкту - " + person.surname);
+		} // initObj
+
+		// Другий спосіб створення об'єкту - написання функції конструктора
+		function Person(name, surname) {
+			// Ініціалізація полів
+			this.name = name;
+			this.surname = surname;
+		} // конструктор для об'єкту Person
+
+		function constructorObj() {
+			let person = new Person("Вася", "Петров"); // ініціалізація об'єкту відбувається через new
+			alert("Створення об'єкту за допомогою конструктора" + 
+				"\nІм'я об'єкту - " + person.name +
+				"\nПрізвище об'єкту - " + person.surname);
+		} // constructorObj
+	</script>
+	<button onclick="initObj()">Новий об'єкт через ініціалізатор</button>
+	<button onclick="constructorObj()">Новий об'єкт через конструктор</button>
+</body>
+</html>
