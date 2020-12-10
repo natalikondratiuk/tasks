@@ -11,8 +11,9 @@
 		function ucFirst() {
 			let string = document.getElementById('string').value;
 			let firstSmb = string.charAt(0);
+			let subStr = string.substring(1); // вирізання підстроки з першого елемента
 			let firstLetter = firstSmb.toUpperCase();
-			let newStr = firstLetter + string;
+			let newStr = firstLetter + subStr;
 			alert("Вхідна строка: " + string + "\nСтрока з першою великою літерою: " + newStr);
 		}
 	</script>
