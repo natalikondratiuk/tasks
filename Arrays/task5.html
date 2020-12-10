@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task5</title>
+</head>
+<body>
+	<h1>Сума чисел, введених з prompt</h1>
+	<script type="text/javascript">
+		function summa() {
+			let summa = 0;
+			let values = [];
+			while (true){
+				let value = prompt("Введіть число", 0);
+				/* Умова закінчення нескінченного циклу:
+				   ввід пустої стрічки,
+			       не число (isFinite(value)),
+			       натиснення "Cкасувати"*/
+				if(value == "" || value == null || !isFinite(value)) break;
+				values.push(+value);
+			} // while true
+
+			for(let val of values){
+				summa += val;
+			} // for val
+			
+			alert("Сформований масив: " + values +
+				"\nСума його елементів = " + summa);
+		}
+	</script>
+	<button onclick="summa()">Сума</button>
+</body>
+</html>

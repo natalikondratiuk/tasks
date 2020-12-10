@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task7</title>
+</head>
+<body>
+	<h1>Функція find(arr, val). Шукає в масиві елемент і повертає його індекс. Якщо не знайдено - повертає -1</h1>
+	<script type="text/javascript">
+		function findInArr() {
+			let arr = ["test", 2, 1.5, false];
+			alert("Початковий масив: " + arr + 
+				"\nІндекс знайденого елементу: " + find(arr, 2));
+		} // findInArr
+
+		function find(arr, val){
+			if(arr.includes(val)){
+				for (let i = 0; i < arr.length; i++){
+						let el = arr[i];
+						if(el == val) return i;
+				} // for i
+			} // if arr.includes
+			else return -1;
+		} // find
+	</script>
+	<button onclick="findInArr()">Find</button>
+</body>
+</html>

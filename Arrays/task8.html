@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task8</title>
+</head>
+<body>
+	<h1>filterRange(arr, a, b). Приймає масив і повертає новий масив, який містить числа в діапазоні від a до b.</h1>
+	<script type="text/javascript">
+		function filtredRange() {
+			let arr = [5, 4, 3, 8, 0];
+			let filtredArr = filterRange(arr, 3, 5)
+			alert("Початковий масив: " + arr +
+				"\nВідфільтрований масив: " + filtredArr);
+		} // filtredRange
+
+		function filterRange(arr, a, b){
+			let filtredArr = [];
+			for (let i = 0; i < arr.length; i++){
+				let el = arr[i];
+				if (a <= el && el <= b){
+					filtredArr.push(el);
+				} // if
+			} // for i
+			return filtredArr;
+		} // filterRange
+	</script>
+	<button onclick="filtredRange()">filterRange</button>
+</body>
+</html>

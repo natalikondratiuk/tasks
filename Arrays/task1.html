@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task1</title>
+</head>
+<body>
+	<h1>Отримання останнього елементу масиву, якщо ми не знаємо його довжини</h1>
+	<p>Для того, щоб отримати останній елемент масиву, потрібно застосувати формулу "array.length-1", адже індексація масивів, як строк, починається з нуля</p>
+	<script type="text/javascript">
+		function lastIndex() {
+			let goods = ["Яблуко", "Апельсин", "Груша"];
+			alert("Початковий масив: " + goods +
+				"\nОстанній елемент масиву goods: " + goods[goods.length-1]);
+		}
+	</script>
+	<button onclick="lastIndex()">Останній елемент</button>
+</body>
+</html>

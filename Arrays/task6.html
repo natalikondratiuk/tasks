@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task6</title>
+</head>
+<body>
+	<h1>Завдання 6</h1>
+	<script type="text/javascript">
+		function testArray() {
+			let arr = [1, 2, 3];
+			alert("Початковий масив: " + arr);
+			let arr2 = arr;
+			arr2[0] = 5;
+			alert("Початковий масив після копіювання: " + arr +
+				"\nПерший елемент масиву arr: " + arr[0])
+			alert("Копія масиву arr: " + arr2 +
+				"\nПерший елемент масиву arr2: " + arr2[0]);
+		}
+	</script>
+	<button onclick="testArray()">Завдання 6</button>
+</body>
+</html>

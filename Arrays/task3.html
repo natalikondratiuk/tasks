@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task3</title>
+</head>
+<body>
+	<h1>Задача з 5 кроків-строк</h1>
+	<ol>
+		<li>Створити масив styles з елементами "Джаз" та "Блюз"</li>
+		<li>Додати в кінець значення "Рок-н-ролл"</li>
+		<li>Замінити передостаннє значення з кінця на значення "Класика"</li>
+		<li>Видалити перше значення масиву і вивести його на alert</li>
+		<li>Додати на початок значення "Реп" та "Реггі"</li>
+	</ol>
+	<script type="text/javascript">
+		function styles(){
+			let styles = ["Джаз", "Блюз"];
+			alert("1. Створити масив styles з елементами Джаз та Блюз: " + styles);
+			
+			styles.push("Рок-н-ролл");
+			alert("2. Додати в кінець значення Рок-н-ролл: " + styles);
+			
+			styles[styles.length-2] = "Класика"; // передостаннє значення масиву з кінця
+			alert("3. Замінити передостаннє значення з кінця на значення Класика: " + styles);
+
+			let deletedEl = styles.shift();
+			alert("4. Видалити перше значення масиву і вивести його на alert: " + styles +
+				"\nВидалений елемент: " + deletedEl);
+
+			styles.unshift("Реп", "Реггі");
+			alert("5. Додати на початок значення Реп та Реггі: " + styles);					
+		}
+	</script>
+	<button onclick="styles()">Styles</button>
+</body>
+</html>
