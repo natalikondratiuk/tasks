@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task3</title>
+</head>
+<body>
+	<h1>Функція removeClass(obj,cls). Видаляє клас cls, якщо він є</h1>
+	<p>Видаліть елемент <input type="text" id="remove"></p>
+	<script type="text/javascript">
+		function testObj() {
+			let remove = document.getElementById('remove').value;
+			let obj = {
+				className: "open menu new menu old test"
+			};
+			let tmp = "";
+			tmp += "base obj => ";
+			tmp += obj.className;
+			tmp += "\n removeClass => "
+			tmp += removeClass(obj, remove);
+			tmp += "\nafter remove obj => ";
+			tmp += obj.className;
+			alert(tmp);
+		} // testObj
+
+		function removeClass(obj, cls) {
+			let current = "";
+			for (let key in obj){
+				current = key;
+			} // for key
+
+			let str = obj[current];
+			let array = obj.className.split(" "); // масив, утворений з елементів строки
+
+			if (str.includes(cls)) {
+				for (let i = 0; i < array.length; i++){
+						if (array[i] == cls){
+							delete array[i]; 
+					} // if (видалити всі елементи що співпадають з cls)
+				} // for
+				obj.className = array.join(" "); // нова стрічка з видаленим елементом
+				return "об'єкт видалено"
+			} // if
+			else {
+				return "такого об'єкту не існує";
+			} // else
+		} // removeClass
+	</script>
+	<button onclick="testObj()">removeClass</button>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task10</title>
+</head>
+<body>
+	<h1>aclean(arr), яка повертає масив слів, очищених від анограм</h1>
+	<script type="text/javascript">
+		function testArr(){
+			let arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+			let tmp = "";
+			tmp += "Початковий масив:"
+			tmp += arr;
+			tmp += "\nМасив, очищений від анограм:"
+			tmp += "\nacleanMap => "
+			tmp += acleanMap(arr);
+			tmp += "\nacleanObj => "
+			tmp += acleanObj(arr);
+			alert(tmp);
+		} // testArr
+
+		function acleanMap(arr){
+			// Перший спосіб реалізації алгоритму
+			let map = new Map(); // створення нової колекції
+			for(let word of arr){
+				let key = word.toLowerCase().split("").sort().join(""); // строка з відсортованими словами (ключ map =>  відповідає одне значення)
+				map.set(key, word); // заносимо значення word за ключем key
+			} // for word
+			return Array.from(map.values()); // повертає значення map у вигляді масиву
+		} // acleanMap
+
+		function acleanObj(arr){
+			// Другий спосіб реалізації алгоритму
+			let obj = {}; // створення нової колекції
+			for(let i = 0; i < arr.length; i++){
+				let key = arr[i].toLowerCase().split("").sort().join(""); // строка з відсортованими словами (ключ =>  відповідає одне значення)
+				obj[key] = arr[i]; // заносимо значення word за ключем key
+			} // for word
+			return Object.values(obj); // повертає значення об'єкта
+		} // acleanObj
+	</script>
+	<button onclick="testArr()">aclean</button>
+</body>
+</html>

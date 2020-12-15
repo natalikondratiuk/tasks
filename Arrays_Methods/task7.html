@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task7</title>
+</head>
+<body>
+	<h1>Перемішати елементи масиву, використовуючи функцію sort</h1>
+	<script type="text/javascript">
+		function shuffle() {
+			let arr = [1, 2, 3, 4, 5];
+			let tmp = "";
+			tmp += "Початковий масив: ";
+			tmp += arr;
+			tmp += "\nПеремішаний масив: "
+			tmp += arr.sort(() => Math.random()-0.5);
+			alert(tmp);
+		} // shuffle
+	</script>
+	<button onclick="shuffle()">Shuffle</button>
+</body>
+</html>

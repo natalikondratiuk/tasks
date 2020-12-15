@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task13</title>
+</head>
+<body>
+	<h1>getSums(arr), яка повертає масив сум елементів масива</h1>
+	<script type="text/javascript">
+		function testArr() {
+			let arr = [1, 2, 3, 4, 5];
+			let tmp = "";
+			tmp += "Початковий масив: ";
+			tmp += arr;
+			tmp += "\nМасив сум: "
+			let sumArr = getSum(arr);
+			tmp += sumArr;
+			alert(tmp);
+		} // testArr
+
+		function getSum(arr){
+			let sumArr = [arr[0]];
+			for (let i = 1; i < arr.length; i++){
+				sumArr.push(arr[i]+sumArr[sumArr.length-1]);
+				} // for i
+			alert(sumArr);
+			return sumArr;
+		} // getSum
+	</script>
+	<button onclick="testArr()">getSums</button>
+</body>
+</html>

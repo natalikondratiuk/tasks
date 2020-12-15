@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task12</title>
+</head>
+<body>
+	<h1>Застосування функції map</h1>
+	<script type="text/javascript">
+		function testArr(){
+			let arr = ["Есть", "жизнь", "на", "Марсе"];
+			let tmp = "";
+			tmp += "Початковий масив: ";
+			tmp += arr;
+			tmp += "\nВикористання функції map: "
+			tmp += arr.map(item => item.length);
+			alert(tmp);
+		} // testArr
+	</script>
+	<button onclick="testArr()">map</button>
+</body>
+</html>

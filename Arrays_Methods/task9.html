@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task9</title>
+</head>
+<body>
+	<h1>Операції над однозв'язними списками</h1>
+	<h2>Задачі</h2>
+	<ol>
+		<li>printList(list) за допомогою цикла</li>
+		<li>printList(list) за допомогою рекурсії</li>
+		<li>printReverseList(list), виводить елементи списку в зворотньому порядку за допомогою рекурсії</li>
+		<li>printReverseList(list), виводить елементи списку в зворотньому порядку за допомогою цикла</li>
+	</ol>
+	<script type="text/javascript">
+		function testList1() {
+			// Тестовий приклад для перевірки printList(list) за допомогою цикла
+			let list = {
+				value : 1,
+				next : {
+					value : 2,
+					next : {
+						value : 3,
+						next : {
+							value : 4,
+							next : null // кінець списку
+						} // next3
+					} // next2
+				} // next1
+			}; // create list
+			printList1(list);
+		} // testList1
+
+		function testList2() {
+			// Тестовий приклад для перевірки printList(list) за допомогою рекурсії
+			let list = {
+				value : 1,
+				next : {
+					value : 2,
+					next : {
+						value : 3,
+						next : {
+							value : 4,
+							next : null // кінець списку
+						} // next3
+					} // next2
+				} // next1
+			}; // create list
+			printList2(list);
+		} // testList2
+
+		function testList3() {
+			// Тестовий приклад для перевірки printReverseList(list), виводить елементи списку в зворотньому порядку за допомогою рекурсії
+			let list = {
+				value : 1,
+				next : {
+					value : 2,
+					next : {
+						value : 3,
+						next : {
+							value : 4,
+							next : null // кінець списку
+						} // next3
+					} // next2
+				} // next1
+			}; // create list
+			printReverseList3(list);
+		} // testList3
+
+		function testList4() {
+			// Тестовий приклад для перевірки printReverseList(list), виводить елементи списку в зворотньому порядку за допомогою цикла
+			let list = {
+				value : 1,
+				next : {
+					value : 2,
+					next : {
+						value : 3,
+						next : {
+							value : 4,
+							next : null // кінець списку
+						} // next3
+					} // next2
+				} // next1
+			}; // create list
+			printReverseList4(list);
+		} // testList4
+
+		function printList1(list){
+			// printList(list) за допомогою цикла
+			let tmp = list;
+			let str = "";
+			str += "printList через цикл:";
+			str += "\n";
+
+			while (tmp){
+				str += tmp.value;
+				str += ", ";
+				tmp = tmp.next;
+			} // while tmp
+			alert(str);
+		} // printList1
+
+		function printList2(list){
+			// printList(list) за допомогою рекурсію
+			let str = "";
+			str += "printList через рекурсію:";
+			str += "\n";
+			function recursionFunc(list){
+				str += list.value; // друк поточного елемента
+				str += ", ";
+
+				if (list.next){
+					recursionFunc(list.next); // друк наступних елемементів
+				} // if list.value
+				return str;
+			} // recursionFunc
+			alert(recursionFunc(list));
+		} // printList2
+
+		function printReverseList3(list){
+			// printReverseList(list), виводить елементи списку в зворотньому порядку за допомогою рекурсії
+			let str = "";
+			str += "printReverseList рекурсію:";
+			str += "\n";
+			function recursionFunc(list){
+					if (list.next){
+						recursionFunc(list.next); // друк наступного елемента
+					} // if list.next
+					str += list.value; // друк попереднього елемента
+					str += ",";
+					return str;
+			} // recursionFunc
+			alert(recursionFunc(list));
+		} // printReverseList3
+
+		function printReverseList4(list){
+			// printReverseList4(list), виводить елементи списку в зворотньому порядку за допомогою цикла
+			let arr = [];
+			let tmp = list;
+			let str = "";
+			str += "printReverseList через цикл:";
+			str += "\n";
+
+			while (tmp){
+				arr.push(tmp.value);
+				tmp = tmp.next;
+			} // while tmp
+
+			for(let i = arr.length-1; i >= 0; i--){
+				str += arr[i];
+				str += ", ";
+			} // for i (зворотній порядок)
+			alert(str);
+		} // printReverseList4
+	</script>
+	<button onclick="testList1()">printList1</button>
+	<button onclick="testList2()">printList2</button>
+	<button onclick="testList3()">printReverseList3</button>
+	<button onclick="testList4()">printReverseList4</button>
+</body>
+</html>

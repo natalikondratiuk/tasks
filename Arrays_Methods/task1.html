@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task1</title>
+</head>
+<body>
+	<h1>Функція addClass(obj, cls), яка додає в список клас cls, але тільки, якщо його ще там немає</h1>
+	<p>Введіть елемент для додавання: <input type="text" id="cls"></p>
+	<script type="text/javascript">
+		function testObj() {
+			let cls = document.getElementById('cls').value;
+			let obj = {
+				className: "open menu"
+			};
+			let tmp = "";
+			tmp += "base obj => ";
+			tmp += obj.className;
+			tmp += "\n addObj => ";
+			tmp += addObj(obj, cls);
+			tmp += "\nafter add obj => ";
+			tmp += obj.className;
+			alert( tmp );
+		}
+
+		function addObj(obj, cls){
+			let current = ""; // поточний ключ
+			for (key in obj){
+				current = key;
+			} // for key (пербір властивотей)
+			let str = obj[current];
+			if (str.includes(cls)){
+				return "вже існує";
+			} // якщо значення властивості уже містить дану стрічку
+			else{
+				obj.className += " " + cls;
+				return "об'єкт додано";
+			} // else
+		}
+	</script>
+	<button onclick="testObj()">addClass</button>
+</body>
+</html>

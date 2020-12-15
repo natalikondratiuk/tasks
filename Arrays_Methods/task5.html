@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task5</title>
+</head>
+<body>
+	<h1>Відсортувати масив в зворотньому порядку</h1>
+	<script type="text/javascript">
+		function backSort(){
+			let arr = [5, 2, 1, -10, 8];
+			let tmp = "";
+			tmp += "Початковий масив: ";
+			tmp += arr;
+			tmp += "\nВідсортований масив в зворотньому порядку: ";
+			arr = arr.sort((a,b) => b-a);
+			tmp += arr;
+			alert(tmp);
+		} // backSort
+	</script>
+	<button onclick="backSort()">backSort</button>
+</body>
+</html>

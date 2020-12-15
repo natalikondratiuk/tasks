@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task6</title>
+</head>
+<body>
+	<h1>Відсортувати масив строк</h1>
+	<script type="text/javascript">
+		function testArr(){
+			let arr = ["HTML", "JavaScript", "CSS"];
+			let tmp = "";
+			tmp += "Початковий масив: ";
+			tmp += arr;
+			tmp += "\nСкопійований і відсортований масив: ";
+			let copySorted = sort(arr);// створення відсортованої копії
+			tmp += copySorted;
+			alert(tmp);
+		} // testArr
+
+		function sort(arr){
+			return arr.slice().sort();
+		} // sort
+	</script>
+	<button onclick="testArr()">stringSort</button>
+</body>
+</html>

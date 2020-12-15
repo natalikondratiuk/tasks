@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task2</title>
+</head>
+<body>
+	<h1>Функція camelize(str), яка перетворює строки виду "my-short-string" в "myShortString"</h1>
+	<p>Введіть строку через дефіс, до якої можна застосувати camelize <input type="text" id="camel"></p>
+	<script type="text/javascript">
+		function camelize() {
+			let camel = document.getElementById('camel').value;
+			let camelArr = camel.split("-"); // новий масив, розділений дефісами
+			let camelNew = ""; // строка з першою великою буквою
+			let camelNewArr = []; // масив із строк з великою буквою
+			camelNewArr.push(camelArr[0]);
+			let camelStr = ""; // об'єднання масива з строк з великою буквою в одну строку
+			for(let i = 1; i < camelArr.length; i++){
+				let camelEl = camelArr[i];
+				let subCamel = camelEl.substring(1); // вирізання з 1 елемента
+				let firstLetter = camelEl.charAt(0); // перший елемент буде великим
+				let firstCamel = firstLetter.toUpperCase(); // робимо 0-ий елемент великим
+				camelNew = firstCamel + subCamel; // утворення масиву з строк, що починаються з великої букви
+				camelNewArr.push(camelNew); // занесенння нових строк в масив
+			} // for i
+			//alert(camelNewArr);
+			camelStr = camelNewArr.join(''); // об'єднання масиву в одну строку
+			alert("Початкова строка: " + camel +
+				"\nноваСтрока: " + camelStr);
+		}
+	</script>
+	<button onclick="camelize()">Camelize</button>
+</body>
+</html>

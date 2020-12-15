@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task11</title>
+</head>
+<body>
+	<h1>unique(arr), яка повертає тільки унікальні значення масиву</h1>
+	<script type="text/javascript">
+		function testArr() {
+			let arr = ["кришна", "кришна", "харе", "харе", "харе", "харе", "харе", "кришна", "8-()"];
+			let tmp = "";
+			tmp += "Початковий масив: "
+			tmp += arr;
+			tmp += "\nМасив з унікальними елементами: ";
+			let uniqueArr = unique(arr);
+			tmp += uniqueArr;
+			alert(tmp);
+		} // testArr
+
+		function unique (arr){
+			let uArr = [];
+			for(str of arr){
+				if (!uArr.includes(str)){
+					uArr.push(str);
+				} // if uArr
+			} // for arr
+			return uArr;
+		} // unique
+	</script>
+	<button onclick="testArr()">unique</button>
+</body>
+</html>

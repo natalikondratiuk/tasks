@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task8</title>
+</head>
+<body>
+	<h1>Відсортувати масив об'єктів people за полем age</h1>
+	<script type="text/javascript">
+		function testArr() {
+			let vasya = {name: "Вася", age: 23};
+			let masha = {name: "Маша", age: 18};
+			let vovochka = {name: "Вовочка", age: 6};
+			let sasha = {name: "Саша", age: 3};
+
+
+			let people = [vasya.name, masha.name, vovochka.name];
+
+			let tmp = "";
+			tmp += "Початковий масив: ";
+			tmp += people;
+			tmp += "\nПісля сортування: ";
+			tmp += sortByAge(people);
+			alert(tmp);
+		} // testArr
+
+		function sortByAge(arr){
+			return arr.sort((a, b) => a.age > b.age ? 1 : -1);
+		} // sortByAge
+	</script>
+	<button onclick="testArr()">sortObjects</button>
+</body>
+</html>
