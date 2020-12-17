@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task6</title>
+</head>
+<body>
+	<h1>getSecondsToday(), яка повертає кількість секунд спочатку сьогоднішнього дня</h1>
+	<script type="text/javascript">
+		function testDate() {
+			alert("Кількість секунд спочатку сьогоднішнього дня: " + getSecondsToday());
+		} // testDate
+
+		function getSecondsToday(){
+			let dateNow = new Date(); // поточна дата
+			let today = new Date(dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDate()); // для збереження поточної дати
+			let diff = dateNow - today; // різниця у мілісекундах
+			return Math.round(diff / 1000); // переводимо у секунди: 1 с = 1000 мс
+		} // getSecondsToday
+	</script>
+	<button onclick="testDate()">getSecondsToday</button>
+</body>
+</html>

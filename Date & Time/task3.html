@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task3</title>
+</head>
+<body>
+	<h1>getLocalDay(date), яка повертає "європейський" день тижня</h1>
+	<p>Введіть рік <input type="text" id="year"></p>
+	<p>Введіть місяць <input type="text" id="month"></p>
+	<p>Введіть день (число) <input type="text" id="day"></p>
+	<script type="text/javascript">
+		function testDate() {
+			let year = document.getElementById('year').value;
+			let month = document.getElementById('month').value-1; // для стандартної нумерації
+			let day = document.getElementById('day').value;
+			let date = new Date(year, month, day);
+			let dateStr = "";
+			
+			let dayStr = "";
+			if (date.getDate() < 10){
+				dayStr += "0";
+				dayStr += date.getDate();
+			} // if date.getDate() < 10
+			else dayStr = date.getDate();
+			dateStr += dayStr;
+			dateStr += ".";
+		
+			let monthStr = "";
+			if (date.getMonth() < 10){
+				monthStr += "0";
+				monthStr += date.getMonth();
+			} // if date.getMonth() < 10
+			else monthStr = date.getMonth();
+			dateStr += monthStr;
+			
+			dateStr += ".";
+			dateStr += date.getFullYear();
+			
+			let tmp = "";
+			tmp += "Дата: ";
+			tmp += dateStr;
+			tmp += "\nЄвропейський день тижня: "
+			let local = getLocalDay(date);
+			tmp += local;
+			alert(tmp);
+		} // testDate
+
+		function getLocalDay(date){
+			let day = date.getDay();
+			if(day == 0){
+				day = 7;
+			} // if day
+			return day;
+		} // getLocalDay
+	</script>
+	<button onclick="testDate()">getLocalDay</button>
+</body>
+</html>

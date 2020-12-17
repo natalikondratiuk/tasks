@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task7</title>
+</head>
+<body>
+	<h1>getSecondsTommorrow(), яка повертає кількість секунд, що залишилось до завтра</h1>
+	<script type="text/javascript">
+		function testDate() {
+			alert("Кількість секунд, що залишилось до завтра: " + getSecondsTommorrow());
+		} // testDate
+
+		function getSecondsTommorrow(){
+			let dateNow = new Date(); // поточна дата
+			let tommorow = new Date(dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDate()+1); // для збереження майбутньої дати
+			let diff = tommorow - dateNow; // різниця у мілісекундах
+			return Math.round(diff / 1000); // переводимо у секунди: 1 с = 1000 мс
+		} // getSecondsTommorow
+	</script>
+	<button onclick="testDate()">getSecondsTommorow</button>
+</body>
+</html>

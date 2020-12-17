@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task8</title>
+</head>
+<body>
+	<h1>formatDate(date), яка виводить дату date у форматі чч.мм.рр</h1>
+	<p>Введіть рік <input type="text" id="year"></p>
+	<p>Введіть місяць <input type="text" id="month"></p>
+	<p>Введіть день (число) <input type="text" id="day"></p>
+	<script type="text/javascript">
+		function testDate() {
+			let year = document.getElementById('year').value;
+			let month = document.getElementById('month').value-1; // для стандартної нумерації
+			let day = document.getElementById('day').value;
+			let date = new Date(year, month, day);
+			alert("Формат чч.мм.рр введеної дати: " + formatDate(date));
+		} // testDate
+
+		function formatDate(date){
+			let dateStr = "";
+			
+			let dayStr = "";
+			if (date.getDate() < 10){
+				dayStr += "0";
+				dayStr += date.getDate();
+			} // if date.getDate() < 10
+			else dayStr = date.getDate();
+			dateStr += dayStr;
+			dateStr += ".";
+		
+			let monthStr = "";
+			let month = date.getMonth()+1; // для стандартної нумерації
+			if (month < 10){
+				monthStr += "0";
+				monthStr += month;
+			} // if date.getMonth() < 10
+			else monthStr = month;
+			dateStr += monthStr;
+			
+			dateStr += ".";
+			let year = date.getFullYear();
+			let yearStr = year.toString();
+			let yearShort = yearStr.substring(2);
+			dateStr += yearShort;
+			return dateStr;
+		} // formatDate
+	</script>
+	<button onclick="testDate()">formatDate</button>
+</body>
+</html>

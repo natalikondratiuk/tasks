@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task9</title>
+</head>
+<body>
+	<h1>formatDate(date), яка форматує дату date як:</h1>
+	<ul>
+		<li>Якщо з часу date пройшло менше секунди, то повертає "щойно"</li>
+		<li>Інакше, якщо з часу date пройшло менше хвилини, то повертає "n сек. тому"</li>
+		<li>Інакше, якщо пройшло менше години, то повертає "m хв. тому"</li>
+		<li>Інакше: повний формат дати "чч.мм.рр"</li>
+	</ul>
+	<script type="text/javascript">
+		function testDate(){
+			let tmp = "";
+			tmp += "Формат дати";
+			tmp += "\nЯкщо пройшло менше секунди: ";
+			tmp += formatDate(new Date(new Date - 1));
+			tmp += "\nЯкщо пройшло менше хвилини: ";
+			tmp += formatDate(new Date(new Date - 30*1000)); // 30 хв => 30 мс
+			tmp += "\nЯкщо пройшло менше години: ";
+			tmp += formatDate(new Date(new Date - 5*60*1000)); // 5 хв => 1 год => 300 мс
+			tmp += "\nПовний формат дати чч.мм.рр: ";
+			tmp += formatDate(new Date(new Date - 86400*1000)); // вчорашння дата
+			alert(tmp);
+		} // testDate
+
+		function formatDate(date){
+			let diff = new Date() - date; // різниця в мілісекундах
+			if (diff < 1000){
+				return "щойно";
+			} // if (менше 1 с: 1 с => 1000 мс)
+			
+			let sec = Math.floor(diff / 1000); // перевід у секунди
+			if (sec < 60){
+				return sec + " сек. тому";
+			} // if (менше 1 хв: 1 хв => 60 с)
+
+			let min = Math.floor(diff / 60000); // перевід у хвилини
+			if (min < 60){
+				return min + " хв. тому";
+			} // if (менше 1 год: 1 год => 60 хв)			
+
+			// формат дати "чч.мм.рр"
+			let dateStr = "";
+			
+			let dayStr = "";
+			if (date.getDate() < 10){
+				dayStr += "0";
+				dayStr += date.getDate();
+			} // if date.getDate() < 10
+			else dayStr = date.getDate();
+			dateStr += dayStr;
+			dateStr += ".";
+		
+			let monthStr = "";
+			let month = date.getMonth()+1; // для стандартної нумерації
+			if (month < 10){
+				monthStr += "0";
+				monthStr += month;
+			} // if date.getMonth() < 10
+			else monthStr = month;
+			dateStr += monthStr;
+			
+			dateStr += ".";
+			let year = date.getFullYear();
+			let yearStr = year.toString();
+			let yearShort = yearStr.substring(2);
+			dateStr += yearShort;
+			return dateStr;
+		} // formatDate
+	</script>
+	<button onclick="testDate()">formatDate</button>
+</body>
+</html>

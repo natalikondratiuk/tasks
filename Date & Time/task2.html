@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task2</title>
+</head>
+<body>
+	<h1>getWeekDay(date), яка виводить поточний день тижня в короткому форматі: "пн", "вт",..."нд"</h1>
+	<p>Введіть рік <input type="text" id="year"></p>
+	<p>Введіть місяць <input type="text" id="month"></p>
+	<p>Введіть день (число) <input type="text" id="day"></p>
+	<script type="text/javascript">
+		function testDate() {
+			let year = document.getElementById('year').value;
+			let month = document.getElementById('month').value-1; // для стандартної нумерації
+			let day = document.getElementById('day').value;
+			let date = new Date(year, month, day);
+			let dateStr = "";
+			
+			let dayStr = "";
+			if (date.getDate() < 10){
+				dayStr += "0";
+				dayStr += date.getDate();
+			} // if date.getDate() < 10
+			else dayStr = date.getDate();
+			dateStr += dayStr;
+			dateStr += ".";
+		
+			let monthStr = "";
+			if (date.getMonth() < 10){
+				monthStr += "0";
+				monthStr += date.getMonth()+1; // для стандартної нумерації
+			} // if date.getMonth() < 10
+			else monthStr = date.getMonth()+1; // для стандартної нумерації
+			dateStr += monthStr;
+			
+			dateStr += ".";
+			dateStr += date.getFullYear();
+			
+			let tmp = "";
+			tmp += "Дата: ";
+			tmp += dateStr;
+			tmp += "\nДень тижня: ";
+			let weekDay = getWeekDay(date);
+			tmp += weekDay;
+			alert(tmp)
+		} // testDate
+
+		function getWeekDay(date){
+			let days = ["нд","пн","вт","ср","чт","пт","сб"];
+			return days[date.getDay()];
+		} // getWeekDay
+	</script>
+	<button onclick="testDate()">getWeekDay</button>
+</body>
+</html>

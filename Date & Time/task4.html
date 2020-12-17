@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task4</title>
+</head>
+<body>
+	<h1>getDateAgo(date), яка повертає число, яке було days днів тому від дати date</h1>
+	<p>Введіть рік <input type="text" id="year"></p>
+	<p>Введіть місяць <input type="text" id="month"></p>
+	<p>Введіть день (число) <input type="text" id="day"></p>
+	<p>Введіть кількість днів від початкової дати <input type="text" id="days"></p>
+	<script type="text/javascript">
+		function testDate() {
+			let year = document.getElementById('year').value;
+			let month = document.getElementById('month').value-1;
+			let day = document.getElementById('day').value;
+			let days = document.getElementById('days').value;
+			let date = new Date(year, month, day);
+			let dateStr = "";
+			
+			let dayStr = "";
+			if (date.getDate() < 10){
+				dayStr += "0";
+				dayStr += date.getDate();
+			} // if date.getDate() < 10
+			else dayStr = date.getDate();
+			dateStr += dayStr;
+			dateStr += ".";
+		
+			let monthStr = "";
+			if (date.getMonth() < 10){
+				monthStr += "0";
+				monthStr += date.getMonth()+1;
+			} // if date.getMonth() < 10
+			else monthStr = date.getMonth()+1;
+			dateStr += monthStr;
+			
+			dateStr += ".";
+			dateStr += date.getFullYear();
+			
+			let tmp = "";
+			tmp += "Дата: ";
+			tmp += dateStr;
+			tmp += "\n";
+			tmp += days;
+			tmp += " днів від ";
+			tmp += dateStr;
+			tmp += ": "
+			let ago = getDateAgo(date, days);
+			tmp += ago;
+			alert(tmp);
+		} // testDate
+
+		function getDateAgo(date, days){
+			let dateCopy = new Date(date); // копія об'єкту дати
+			dateCopy.setDate(dateCopy.getDate() - days);
+			return dateCopy.getDate();
+		} // getDateAgo
+	</script>
+	<button onclick="testDate()">getDateAgo</button>
+</body>
+</html>

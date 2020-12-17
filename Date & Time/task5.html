@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task5</title>
+</head>
+<body>
+	<h1>getLastDayOfMonth(year,month), яка повертає останній день місяця</h1>
+	<p>Введіть рік <input type="text" id="year"></p>
+	<p>Введіть місяць <input type="text" id="month"></p>
+	<script type="text/javascript">
+		function testDate() {
+			let year = document.getElementById('year').value;
+			let month = document.getElementById('month').value-1; // для стандартної нумерації
+			let date = new Date(year, month);
+			let dateStr = "";
+			
+			let monthStr = "";
+			if (date.getMonth() < 10){
+				monthStr += "0";
+				monthStr += date.getMonth()+1; // для стандартної нумерації
+			} // if date.getMonth() < 10
+			else monthStr = date.getMonth()+1; // для стандартної нумерації
+			dateStr += monthStr;
+			
+			dateStr += ".";
+			dateStr += date.getFullYear();
+			
+			let tmp = "";
+			tmp += "Дата: ";
+			tmp += dateStr;
+			tmp += "\nОстанній день ";
+			tmp += dateStr;
+			tmp += ": ";
+			let day = getLastDayOfMonth(date.getFullYear(),date.getMonth());
+			tmp += day;
+			alert(tmp);
+		} // testDate
+
+		function getLastDayOfMonth(year,month){
+			let dateL = new Date(year, month+1, 0); // отримання останнього дня місяця ( 0-ве число місяця відповідає
+													// останньому дню попереднього місяця )
+			return dateL.getDate();
+		} // getLastDayOfMonth
+</script>
+	<button onclick="testDate()">getLastDayOfMonth</button>
+</body>
+</html>
