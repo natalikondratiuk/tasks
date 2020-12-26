@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task10</title>
+</head>
+<body>
+	<h1>Функція byField(field), яку можна використовувати в sort для порівняння об'єктів по полю field</h1>
+	<script type="text/javascript">
+		function testUsers() {
+			var users = [{
+				name : "Вася",
+				surname : 'Іванов',
+				age : 20
+			}, {
+				name : "Петя",
+				surname : 'Чапаєв',
+				age : 25
+			}, {
+				name : "Маша",
+				surname : 'Медведєва',
+				age : 18
+			}]; // масив об'єктів
+
+			// Сортування за іменем
+			users.sort(byField('name')); // сортування використовує власну функцію
+			users.forEach(users => alert(users.name)); // alert до кожного елемента масиву
+
+			// Сортування за віком
+			users.sort(byField('age')); // сортування використовує власну функцію
+			users.forEach(users => alert(users.name)); // alert до кожного елемента масиву
+		} // testUsers
+
+		function byField(field){
+			return (a,b) => a[field] > b[field] ? 1 : -1;
+		} // byField
+	</script>
+	<button onclick="testUsers()">byField</button>
+</body>
+</html>

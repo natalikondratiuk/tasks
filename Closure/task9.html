@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task9</title>
+</head>
+<body>
+	<h1>Додати до попередньої функції метод buffer.clean(), який очищатиме буфер</h1>
+	<script type="text/javascript">
+		function makeBuffer(){
+			var text = ''; // строковий буфер
+			function buffer(piece){
+				if (arguments.length == 0){
+					return text;
+				} // if (якщо аргументів немає => буфер просто повертає значення)
+				text += piece; // наповнення буфера
+			}; // реалізація строкового буфера відбувається через іменовану ф-цію (замикання)
+
+			buffer.clear = function(){
+				text = ""; // очистка строкового буферу
+			} // очистка строкового буфера відбувається через анонімну ф-цію (замикання)
+
+			return buffer; // буфер пустий 
+		}; // makeBuffer
+
+		function testBuffer(){
+			var buffer = makeBuffer();
+
+			// додавання тексту в буфер
+			// buffer - теж ф-ція (makeBuffer() використовує замикання)
+			buffer('Тест');
+			buffer(' тебе');
+			buffer(' не');
+			buffer(" з'їсть");
+
+			var tmp = '';
+			tmp += 'Строковий буфер - ';
+			tmp += buffer();
+			console.log('Строковий буфер - ' + buffer());
+			tmp += '\nОчистка строкового буферу - ';
+			buffer.clear(); // очистка строкового буферу
+			tmp += buffer();
+			console.log('Очистка строкового буферу - ' + buffer());
+			alert(tmp);
+		} // testBuffer
+	</script>
+	<button onclick="testBuffer()">makeBuffer</button>
+</body>
+</html>

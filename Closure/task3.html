@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task3</title>
+</head>
+<body>
+	<h1>Який результат виконання цього коду? Чому?</h1>
+	<script type="text/javascript">
+		function test() {
+			var tmp = "";
+			tmp += "window start = "
+			tmp += window; // undefined => змінна window ще не має значення (тобто є просто контейнер window із початковим значенням - undefined)
+			tmp += "\nwindow finish = ";
+			console.log("window start = " + window);
+			var window = 5;
+			tmp += window; // 5 => змінній window присвоюється значення 5
+			console.log("window finish = " + window);
+			alert(tmp);
+		} // test
+		//test();
+	</script>
+	<button onclick="test()">Test</button>
+</body>
+</html>

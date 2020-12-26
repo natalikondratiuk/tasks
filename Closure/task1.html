@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task1</title>
+</head>
+<body>
+	<h1>Що відбудеться, якщо виклик say("Вася"); стоїть на самому початку коду?</h1>
+	<script type="text/javascript">
+		let phrase = "Привіт"; // зробити змінну phrase глобальною
+		function test1() {
+			//let phrase = "Привіт"; // має місце положення змінної
+			say("Вася"); // Uncaught ReferenceError: phrase is not defined (початкова умова)
+			//say("Вася", phrase); // якщо ми введемо в метод say два параметри - цей код працюватиме
+			//let phrase = "Привіт"; // UncaughtError: Cannot access 'phrase' before initialization
+		} // test1
+
+		function say(name){
+			alert (name + ", " + phrase)
+			console.log (name + ", " + phrase); // для виводу на консоль
+		} // say
+		//say("Вася");
+	</script>
+	<button onclick="test1()">say</button>
+</body>
+</html>

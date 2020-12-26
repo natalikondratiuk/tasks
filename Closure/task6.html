@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task6</title>
+</head>
+<body>
+	<h1>Що виведуть ці виклики, якщо currentCount знаходиться ззовні makeCounter?</h1>
+	<script type="text/javascript">
+		var currentCount = 1; // глобальна змінна
+		function makeCounter() {
+			//var currentCount = 1;
+			return function() {
+				return currentCount++;// пост інкремент виконується після 	return, тому при першому виклику повертає початкове значення currentCount
+			}; // вертає анонімну ф-цію
+		} // makeCounter
+		var counter = makeCounter();
+		var counter2 = makeCounter();
+
+		console.log("counter = " + counter());
+		console.log("counter = " + counter());
+		// counter1 => 1, 2
+
+		console.log("\ncounter2 = " + counter2());
+		console.log("counter2 = " + counter2());
+		// counter2 => 3, 4
+
+		// Тобто, ці два лічильники рахують послідовно, тому що змінна currentCount - глобальна змінна
+	</script>
+</body>
+</html>

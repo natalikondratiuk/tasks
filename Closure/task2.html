@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task2</title>
+</head>
+<body>
+	<h1>Яким буде результат виконання коду?</h1>
+	<script type="text/javascript">
+		var value = 0; // умова value = 0 => умова else не виконається
+		function f(){
+			//var value = 0; // test
+			console.log("value start = " + value); // undefined => змінна value = 0, це - undefined
+			if (1) {
+				value = true;
+				console.log("If value = " + value);
+			} // if
+			// Для того, щоб гілка else запрацювала, потрібна умова if (value == 1)
+			else {
+				value = false;
+				console.log("Else value = " + value);
+			} // else
+			alert("value finish = " + value);
+			console.log("value finish = " + value);
+		} // f
+		//f();
+	</script>
+	<button onclick="f()">f</button>
+</body>
+</html>

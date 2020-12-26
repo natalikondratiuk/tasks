@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task8</title>
+</head>
+<body>
+	<h1>Реалізувати строковий буфер: buffer(value) - додає значення в сховище; buffer() - повертає це значення</h1>
+	<script type="text/javascript">
+		function makeBuffer(){
+			var text = ''; // строковий буфер
+			return function(piece){
+				if (arguments.length == 0){
+					return text;
+				} // if (якщо аргументів немає => буфер просто повертає значення)
+				text += piece; // наповнення буфера
+			}; // реалізація строкового буфера відбувається через анонімну ф-цію (замикання)
+		}; // makeBuffer
+
+		function testBuffer(){
+			var buffer = makeBuffer();
+
+			// додавання тексту в буфер
+			// buffer - теж ф-ція (makeBuffer() використовує замикання)
+			buffer('Замикання');
+			buffer(' Використовувати');
+			buffer(' Потрібно');
+
+			var tmp = '';
+			tmp += 'Строковий буфер - ';
+			tmp += buffer();
+			tmp += '\nСтроковий буфер 2 - ';
+			console.log('Строковий буфер - ' + buffer());
+
+			var buffer2 = makeBuffer();
+			buffer2(0);
+			buffer2(1);
+			buffer2(0);
+			tmp += buffer2();
+			console.log('Строковий буфер 2 - ' + buffer2());
+			alert(tmp);
+		} // testBuffer
+	</script>
+	<button onclick="testBuffer()">makeBuffer</button>
+</body>
+</html>

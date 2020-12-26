@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task7</title>
+</head>
+<body>
+	<h1>Функція sum: sum(a)(b) = a + b</h1>
+	<script type="text/javascript">
+		function sum(a) {
+			// sum викликає функцію яка виконує додавання
+			let curSum = a;
+			function f(b) {
+				curSum += b; // послідовно накопичує суму 
+				return f;
+			}; // замикання
+			f.toString = function() {
+			return curSum;}
+		return f;
+		} // sum
+		console.log("sum1 = " + sum(1)(2)(5));
+		alert ( "sum1 = " + sum(1)(2)(5) );
+		console.log("sum2 = " + sum(5)(-1));
+	</script>
+</body>
+</html>

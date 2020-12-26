@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task5</title>
+</head>
+<body>
+	<h1>Якщо у внутрішньої функції є своя змінна з іменем currentCount - чи можна в ній отримати currentCount із зовнішньої функції?</h1>
+	<script type="text/javascript">
+		function makeCounter() {
+			var currentCount = 1;
+			return function() {
+				var currentCount; // ні, не можна отримати значення currentCount = 1 => створення нового контейнера currentCount зі значенням undefined
+				return currentCount;
+			}; // замикання
+		} // makeCounter
+		let counter = makeCounter(); // current - теж функція (тому що ф-ція makeCounter вертає також функцію (замикання))
+		console.log("counter = " + counter());
+	</script>
+</body>
+</html>

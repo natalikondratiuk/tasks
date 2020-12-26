@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task12</title>
+</head>
+<body>
+	<h1>Функція створює масив стрільців shooters. За задумом, кожен стрілець має виводити свій порядковий номер. Виправити код</h1>
+	<script type="text/javascript">
+		function testArr(){
+			let army = makeArmy();
+			army[0]();
+			army[5]();
+		} // testArr
+
+		function makeArmy(){
+			let shooters = []; // масив стрільців
+			for (let i = 0; i < 10; i++){
+				let shooter = function() {
+					alert ("Стрілець з індексом " + i);
+				}; // функція shooter має виводити порядковий номер стрільця 
+				shooters.push(shooter);//додаємо стрільця до масиву
+				//повинно виконуватися в одному циклі
+			} // for i (переміщаємо визначення змінної в цикл)
+			
+			return shooters;
+		} // makeArmy
+	</script>
+	<button onclick="testArr()">makeArmy</button>
+</body>
+</html>
