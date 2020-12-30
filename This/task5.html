@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task5</title>
+</head>
+<body>
+	<h1>Створити об'єкт calculator з трьома методами</h1>
+	<ul>
+		<li>read() запитує prompt два значення об'кта і зберігає їх як властивості об'єкта</li>
+		<li>sum() повертає суму цих двох значень</li>
+		<li>mul() повертає добуток цих двох значень</li>
+	</ul>
+	<script type="text/javascript">
+		let calculator = {
+			sum(){
+				let str = '';
+				str += this.a + " + " + this.b + " = " + (this.a + this.b);
+				return str;
+			}, // sum
+
+			mul(){
+				let str = '';
+				str += this.a + " * " + this.b + " = " + (this.a * this.b);
+				return str;
+			}, // mul
+
+			read(){
+				// Змінні зберігаються як властивості об'єкта
+				 this.a = +prompt("Введіть значення a", 0);
+				 this.b = +prompt("Введіть значення b", 0);
+			} // read
+		}; // calculator
+
+		calculator.read();
+		alert( calculator.sum() );
+		alert( calculator.mul() );
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task2</title>
+</head>
+<body>
+	<h1>Який буде результат виконання цього коду?</h1>
+	<script type="text/javascript">
+		var obj = {
+			name: "Vasya", // test
+			go: function() { alert("* / " + this.name + " / " + this ) }
+		}; // не вистачає ";", і тому JavaScript вважає, що (obj.go)() - аргумент функції
+		(obj.go)();// [object Object] - стандартне визначення об'єкта
+	</script>
+</body>
+</html>

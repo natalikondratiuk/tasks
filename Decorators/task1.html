@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task1</title>
+</head>
+<body>
+	<h1>Створити декоратор makeLogging (func, log), яка для функції func повертає обгортку, яка при кожному виклику додає її аргументи в масив log</h1>
+	<script type="text/javascript">
+		function work ( a, b ){
+			let sum = a + b;
+			alert ( "work: " + sum );
+		} // work - довільна функція
+		
+		function makeLogging ( func, log ){
+			function wrapper (){
+				log.push( [].slice.call( arguments ) ); // записує аргумент в масив логів (весь об'єкт arguments)
+				return func.apply( this, arguments ); // apply - передавання виклику з довільною к-тю аргументів (весь об'єкт arguments)
+			} // wrapper (замикання)
+			return wrapper;
+		} // makeLogging
+
+		var log = []; // масив логів
+		work = makeLogging ( work, log ); // передача контексту
+			
+		work( 1, 2 );
+		work( 5, 5 );
+			
+		for ( var i = 0; i < log.length; i++ ){
+			var args = log[ i ]; // масив з аргументів і-го виклику
+			alert ( "Лог: " + args.join(", ") );
+		} // for log
+	</script>
+</body>
+</html>

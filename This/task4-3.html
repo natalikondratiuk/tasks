@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task4-3</title>
+</head>
+<body>
+	<h1>Що виведе alert в цьому коді? Чому?</h1>
+	<script type="text/javascript">
+	var name = "";
+	var user = {
+		name: "Василь",
+		export: function() {
+			return {
+			value: this
+			}; // повертає this як метод value
+		}
+	};
+	alert( user.export().value.name + " / " + user.name );
+	</script>
+</body>
+</html>

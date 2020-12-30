@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task2</title>
+</head>
+<body>
+	<h1>Створити декоратор makeCaching (f), який бере функцію f та повертає обгортку, яка кешує її результати</h1>
+	<script type="text/javascript">
+		function f ( x ){
+			return Math.random() * x;
+		} // f
+		
+		function makeCaching ( f ){
+			var cache = {}; // об'єкт кешу
+			return function ( x ){
+				if ( ! ( x in cache ) ){
+					cache[x] = f.call( this, x ); // передавання виклику
+				} // if x (перевірка на наявність підрахованого значення)
+				return cache[x];
+			}; // замикання
+		} // makeCaching
+
+		f = makeCaching ( f ); // передача контексту
+			
+		var a = f( 1 );
+		var b = f( 1 );
+		alert ( a == b );
+
+		b = f( 2 );
+		alert ( a == b );
+	</script>
+</body>
+</html>

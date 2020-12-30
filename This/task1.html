@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task1</title>
+</head>
+<body>
+	<h1>Який буде результат? Чому?</h1>
+	<script type="text/javascript">
+		"use strict";
+		var arr = ["a", "b"];
+		//alert(arr.length);
+		arr.push(function() {alert( this );}); // додає в кінець масиву весь вміст кортежу, що між дужками
+		arr[2](); // звертання до елементу викликає виконання функціїї, що він містить. В нашому випадку - друк самої себе
+		alert( arr[0] + " / " + arr[1] + " / " + arr[2] );
+		//alert(arr.length);
+	</script>
+</body>
+</html>
